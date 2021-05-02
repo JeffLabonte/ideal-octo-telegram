@@ -4,7 +4,7 @@ from django.db.models import fields
 from src.settings import settings
 
 
-class EncryptedCharField(fields.CharField):
+class EncryptedFieldMixin:
     def __init__(self, *args, **kwargs):
         self._fernet = Fernet(key=settings.SECRET_KEY)
         super().__init__(*args, **kwargs)
@@ -22,3 +22,16 @@ class EncryptedCharField(fields.CharField):
         """
         value = self._fernet.encrypt(data=value.encode("utf-8"))
         return super().get_db_prep_save(value, connection)
+
+
+class EncryptedCharField(
+    EncryptedFieldMixin,
+    fields.CharField
+):
+    pass
+
+class EncryptedTextField(
+    EncryptedFieldMixin,
+    fields.TextField,
+):
+    pass
