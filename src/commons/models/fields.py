@@ -29,6 +29,7 @@ class EncryptedCharField(
 ):
     pass
 
+
 class EncryptedTextField(
     EncryptedFieldMixin,
     fields.TextField,
