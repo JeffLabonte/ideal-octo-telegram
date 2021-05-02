@@ -3,3 +3,6 @@ install_dev: venv
 
 venv:
 	python3 -m venv .venv
+
+settings:
+	cp src/settings/extra_settings.py.template src/settings/extra_settings.py
