@@ -6,7 +6,7 @@ from settings.settings import BASE_DIR
 
 
 class CryptographyHelper:
-    FOLDER_PATH = os.path.join(BASE_DIR, 'keys')
+    FOLDER_PATH = os.path.join(BASE_DIR, "keys")
 
     def __init__(self, filename: str):
         self._file_path = os.path.join(self.FOLDER_PATH, filename)
@@ -29,7 +29,7 @@ class CryptographyHelper:
             os.mkdir(self.FOLDER_PATH)
 
     def encrypt(self, value: str):
-        return self._fernet.encrypt(data=value.encode('UTF-8'))
+        return self._fernet.encrypt(data=value.encode("UTF-8"))
 
     def decrypt(self, value: str):
         return self._fernet.decrypt(value)

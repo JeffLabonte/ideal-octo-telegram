@@ -5,7 +5,7 @@ from commons.helpers.cryptography_helper import CryptographyHelper
 
 class EncryptedFieldMixin:
     def __init__(self, *args, **kwargs):
-        self._cryptography_helper = CryptographyHelper(filename=kwargs.pop('key_name'))
+        self._cryptography_helper = CryptographyHelper(filename=kwargs.pop("key_name"))
         super().__init__(*args, **kwargs)
 
     def get_prep_value(self, value):
