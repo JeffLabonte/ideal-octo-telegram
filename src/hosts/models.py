@@ -3,7 +3,12 @@ import uuid
 from django.db import models
 
 
-PROTOCOL_SUPPORTED = (("ssh", "ssh"),)
+PROTOCOL_SUPPORTED = (
+    (
+        "ssh",
+        "ssh",
+    ),
+)
 
 
 class Credentials(models.Model):
