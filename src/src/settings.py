@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-yey_(h#isa1tutv8pw!x*e4m3fzsdt%b#i07e$v--f#0p$v-7i'
+SECRET_KEY = 'django-insecure-k28p#w_)7h!lpepa&08)=28fnt+4@h*xs)u3#j77n=4=bc#h80'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -30,14 +30,6 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-THIRD_PARTY = [
-    'rest_framework',
-]
-
-CUSTOM_APPS = [
-    'hosts',
-]
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -46,9 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
-
-INSTALLED_APPS.extend(THIRD_PARTY + CUSTOM_APPS)
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -60,7 +49,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'settings.urls'
+ROOT_URLCONF = 'src.urls'
 
 TEMPLATES = [
     {
@@ -78,7 +67,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'settings.wsgi.application'
+WSGI_APPLICATION = 'src.wsgi.application'
 
 
 # Database
