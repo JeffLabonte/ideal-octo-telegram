@@ -12,8 +12,14 @@ class Credentials(models.Model):
         default=uuid.uuid4,
         editable=False,
     )
-    username = models.CharField(max_length=160, blank=False)
-    password = models.CharField(max_length=160, blank=False)
+    username = models.CharField(
+        max_length=160,
+        blank=False,
+    )
+    password = models.CharField(
+        max_length=160,
+        blank=False,
+    )
 
 
 class Hosts(models.Model):
@@ -38,7 +44,7 @@ class Hosts(models.Model):
     credentials = models.ForeignKey(
         to=Credentials,
         on_delete=models.CASCADE,
-        related_name="*",
+        related_name="+",
     )
 
     class Meta:
