@@ -2,8 +2,14 @@ import uuid
 
 from django.db import models
 
+from common.models.mixins.timestamps import TimeStampMixin
+from sensors.constants import TYPE_CHOICES
 
-class Device(models.Model):
+
+class Device(
+    TimeStampMixin,
+    models.Model,
+):
     id = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
@@ -14,10 +20,17 @@ class Device(models.Model):
     )
 
 
-class MushroomSensors(models.Model):
+class Sensors(
+    TimeStampMixin,
+    models.Model,
+):
     id = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
+    )
+    type = models.CharField(
+        max_length=30,
+        choices=TYPE_CHOICES,
     )
     json_data = models.JSONField()
     device = models.ForeignKey(
