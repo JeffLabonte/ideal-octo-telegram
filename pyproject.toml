@@ -12,6 +12,7 @@ paramiko = "^2.7.2"
 celery = "^5.1.2"
 pgsql = "^1.2"
 dj-rest-auth = "^2.1.11"
+django-allauth = "^0.45.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"
