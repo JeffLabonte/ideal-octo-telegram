@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     "dj_rest_auth.registration",
     # Local
     "hosts",
-    "mushroom_sensors",
+    "sensors",
 ]
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
