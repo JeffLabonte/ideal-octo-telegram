@@ -18,6 +18,22 @@ class Device(
         max_length=60,
         unique=True,
     )
+    ip_addresses = models.ManyToManyField(
+        to="sensors.IpAddress",
+    )
+
+
+class IpAddress(
+    TimeStampMixin,
+    models.Model,
+):
+    id = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+    )
+    ip_address = models.CharField(
+        max_length=15,
+    )
 
 
 class Sensors(
