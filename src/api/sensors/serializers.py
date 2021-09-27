@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from common.serializers.default_ip_address import DefaultIpAddress
-from sensors.models import Device, IpAddress, Sensors
+from sensors.models import Device, Sensors
 
 
 class DeviceWriteSerializer(serializers.ModelSerializer):
@@ -18,21 +18,35 @@ class DeviceWriteSerializer(serializers.ModelSerializer):
 
         ip_address = self.validated_data["ip_address"]
         query_args = {
-            "device_name": self.validated_data["device_data"],
+            "device_name": self.validated_data["device_name"],
         }
 
-        if model.objects.exists(**query_args) and ip_address in model.objects.get(
+        if model.objects.filter(
             **query_args
-        ).ip_addresses.values_list("ip_address", flat=True):
+        ).exists() and ip_address in model.objects.get(
+            **query_args
+        ).ip_addresses.values_list(
+            "ip_addresses",
+            flat=True,
+        ):
             instance = model.objects.get(**query_args)
             instance.ip_addresses.add(ip_address)
             instance.save()
         else:
-            super().save(**kwargs)
+            device = model(**query_args)
+            device.ip_addresses.set(
+                [
+                    ip_address,
+                ]
+            )
+            devoce.save()
 
     class Meta:
         model = Device
-        fields = ["id", "device_name"]
+        fields = [
+            "device_name",
+            "ip_address",
+        ]
 
 
 class SensorsWriteSerializer(serializers.ModelSerializer):
@@ -42,7 +56,6 @@ class SensorsWriteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sensors
         fields = [
-            "id",
             "sensor_data",
             "device_name",
         ]
