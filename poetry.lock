@@ -760,6 +760,21 @@ toml = "*"
 testing = ["fields", "hunter", "process-tests", "six", "pytest-xdist", "virtualenv"]
 
 [[package]]
+name = "pytest-django"
+version = "4.4.0"
+description = "A Django plugin for pytest."
+category = "dev"
+optional = false
+python-versions = ">=3.5"
+
+[package.dependencies]
+pytest = ">=5.4.0"
+
+[package.extras]
+docs = ["sphinx", "sphinx-rtd-theme"]
+testing = ["django", "django-configurations (>=2.0)"]
+
+[[package]]
 name = "pytest-drf"
 version = "1.1.2"
 description = "A Django REST framework plugin for pytest."
@@ -969,7 +984,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "49221887878674ff03e16f43a90dd29e5d57e9f4c6dccddd6bc9d029ea38eba0"
+content-hash = "22ea6d80fe5057a37d527c14eced51c76f8078fa5b131a5c457f3a0c9377ac0a"
 
 [metadata.files]
 amqp = [
@@ -1434,6 +1449,10 @@ pytest-common-subject = [
 pytest-cov = [
     {file = "pytest-cov-2.12.1.tar.gz", hash = "sha256:261ceeb8c227b726249b376b8526b600f38667ee314f910353fa318caa01f4d7"},
     {file = "pytest_cov-2.12.1-py2.py3-none-any.whl", hash = "sha256:261bb9e47e65bd099c89c3edf92972865210c36813f80ede5277dceb77a4a62a"},
+]
+pytest-django = [
+    {file = "pytest-django-4.4.0.tar.gz", hash = "sha256:b5171e3798bf7e3fc5ea7072fe87324db67a4dd9f1192b037fed4cc3c1b7f455"},
+    {file = "pytest_django-4.4.0-py3-none-any.whl", hash = "sha256:65783e78382456528bd9d79a35843adde9e6a47347b20464eb2c885cb0f1f606"},
 ]
 pytest-drf = [
     {file = "pytest-drf-1.1.2.tar.gz", hash = "sha256:47352e382a97b4d64923f39e46cda8f45b93db93802f2d3a0d14d116cdc56ecb"},
