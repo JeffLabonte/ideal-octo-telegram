@@ -5,6 +5,6 @@ from api.sensors.views.sensors_views import SensorsViewSet
 
 router = SimpleRouter()
 router.register("sensors", SensorsViewSet, basename="sensors")
-router.register("devices", DeviceViewSet, basenme="devices")
+router.register("devices", DeviceViewSet, basename="devices")
 
 urlpatterns = router.urls
