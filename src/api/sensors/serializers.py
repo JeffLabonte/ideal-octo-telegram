@@ -13,12 +13,12 @@ class DeviceWriteSerializer(serializers.ModelSerializer):
         return self.context.get("request").META.get("REMOTE_ADDR")
 
     def create(self, validated_data):
-        instance = self.Meta.model.objects.create(**validated_data)
+        instance = self.Meta.model.objects.get_or_create(**validated_data)[0]
         ip_address = IpAddress(
             ip_address=self._get_ip_from_context(),
+            device=instance,
         )
         ip_address.save()
-        instance.ip_addresses.set([ip_address])
         return instance
 
     def update(self, instance, validated_data):
