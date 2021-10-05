@@ -39,12 +39,21 @@ class DeviceWriteSerializer(serializers.ModelSerializer):
 
 
 class SensorsWriteSerializer(serializers.ModelSerializer):
-    sensor_data = serializers.JSONField(required=True)
-    device_name = DeviceWriteSerializer(required=True)
+    sensors_data = serializers.JSONField(required=True)
+    device = DeviceWriteSerializer(required=True)
+
+    def create(self, validated_data):
+        device_instance = self.fields["device"].create(
+            validated_data=validated_data.pop("device"),
+        )
+        instance = super().create(validated_data=validated_data)
+        instance.device = device_instance
+        instance.save()
+        return instance
 
     class Meta:
         model = Sensors
         fields = [
-            "sensor_data",
-            "device_name",
+            "sensors_data",
+            "device",
         ]
