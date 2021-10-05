@@ -49,7 +49,7 @@ class Sensors(
         max_length=30,
         choices=TYPE_CHOICES,
     )
-    json_data = models.JSONField()
+    sensors_data = models.JSONField()
     device = models.ForeignKey(
         to=Device,
         default=None,
