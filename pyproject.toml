@@ -31,3 +31,28 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.flake8]
 max_length = 160
+
+[tool.black]
+target-version = ["py38",]
+include = '\.pyi?$'
+line-length = 120
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black" 
+multi_line_output = 3
+
+[tool.pyright]
+python.analysis.autoImportCompletions = true
