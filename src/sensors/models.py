@@ -18,9 +18,6 @@ class Device(
         max_length=60,
         unique=True,
     )
-    ip_addresses = models.ManyToManyField(
-        to="sensors.IpAddress",
-    )
 
 
 class IpAddress(
@@ -30,6 +27,10 @@ class IpAddress(
     id = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
+    )
+    device = models.ForeignKey(
+        to=Device,
+        on_delete=models.CASCADE,
     )
     ip_address = models.CharField(
         max_length=15,
