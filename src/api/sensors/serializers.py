@@ -1,7 +1,7 @@
+import itertools
 from rest_framework import serializers
 
-from common.serializers.default_ip_address import DefaultIpAddress
-from sensors.models import Device, Sensors
+from sensors.models import Device, IpAddress, Sensors
 
 
 class DeviceWriteSerializer(serializers.ModelSerializer):
@@ -9,44 +9,33 @@ class DeviceWriteSerializer(serializers.ModelSerializer):
         required=True,
     )
 
-    ip_address = serializers.HiddenField(
-        default=DefaultIpAddress,
-    )
+    def _get_ip_from_context(self) -> str:
+        return self.context.get("request").META.get("REMOTE_ADDR")
 
-    def save(self, **kwargs):
-        model = self.Meta.model
+    def create(self, validated_data):
+        instance = self.Meta.model.objects.create(**validated_data)
+        ip_address = IpAddress(
+            ip_address=self._get_ip_from_context(),
+        )
+        ip_address.save()
+        instance.ip_addresses.set([ip_address])
+        return instance
 
-        ip_address = self.validated_data["ip_address"]
-        query_args = {
-            "device_name": self.validated_data["device_name"],
-        }
-
-        if model.objects.filter(
-            **query_args
-        ).exists() and ip_address in model.objects.get(
-            **query_args
-        ).ip_addresses.values_list(
-            "ip_addresses",
-            flat=True,
-        ):
-            instance = model.objects.get(**query_args)
-            instance.ip_addresses.add(ip_address)
-            instance.save()
-        else:
-            device = model(**query_args)
-            device.ip_addresses.set(
+    def update(self, instance, validated_data):
+        ip_addresses = set(
+            itertools.chain(
+                instance.ip_addresses.all(),
                 [
-                    ip_address,
-                ]
+                    self._get_ip_from_context(),
+                ],
             )
-            devoce.save()
+        )
+        instance.ip_addresses.set(ip_addresses)
+        return super().update(instance, validated_data)
 
     class Meta:
         model = Device
-        fields = [
-            "device_name",
-            "ip_address",
-        ]
+        fields = ("device_name",)
 
 
 class SensorsWriteSerializer(serializers.ModelSerializer):
