@@ -21,18 +21,6 @@ class DeviceWriteSerializer(serializers.ModelSerializer):
         ip_address.save()
         return instance
 
-    def update(self, instance, validated_data):
-        ip_addresses = set(
-            itertools.chain(
-                instance.ip_addresses.all(),
-                [
-                    self._get_ip_from_context(),
-                ],
-            )
-        )
-        instance.ip_addresses.set(ip_addresses)
-        return super().update(instance, validated_data)
-
     class Meta:
         model = Device
         fields = ("device_name",)
