@@ -7,7 +7,7 @@ ENV DATABASE_NAME=${DATABASE_NAME}
 ENV DATABASE_USER=${DATABASE_USER}
 ENV DATABASE_PASSWORD=${DATABASE_PASSWORD}
 
-RUN apt update && apt install -y apt-utils build-essential curl && \
+RUN apt update && apt install -y apt-utils build-essential libpq-dev curl && \
     pip install poetry
 
 COPY entrypoint.sh /opt/code/
