@@ -13,8 +13,10 @@ API to control your devices on your network and make all your automation scripts
 
 ## Getting Started:
 
-* Run `make install`
-
-### TODO Fix this 
-* Run the following command: `make settings` to create your `extra_settings.py`
-* Edit `src/settings/extra_settings.py` to set your own settings
+* Install some postgresql dependencies to compile the code:
+    * On Linux:
+        * Ubuntu/Debian: `sudo apt install libpq-devel`
+        * Fedora 34: `sudo dnf install libpq-devel`
+    * On macOS:
+        * `brew install postgresql`
+* Before running `make install`
