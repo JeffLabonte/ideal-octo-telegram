@@ -1,0 +1,26 @@
+volumes:
+  database_data: {}
+
+services:
+  database:
+    image: postgres
+    volumes:
+      - database_data:/var/lib/posgresql/data
+    environment:
+      - POSTGRES_DB=${DATABASE_NAME}
+      - POSTGRES_USER=${DATABASE_USER}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+  load_balancer:
+    build: 
+      context: .
+      dockerfile: docker/Dockerfile.nginx
+    ports:
+      - 80:80
+  api:
+    image: grimsleepless/ideal-octo-telegram
+    environment:
+      - DATABASE_NAME=${DATABASE_NAME}
+      - DATABASE_USER=${DATABASE_USER}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+    depends_on:
+      - database
