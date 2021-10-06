@@ -14,6 +14,7 @@ pgsql = "^1.2"
 dj-rest-auth = "^2.1.11"
 django-allauth = "^0.45.0"
 gunicorn = "^20.1.0"
+psycopg2 = "^2.9.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"
