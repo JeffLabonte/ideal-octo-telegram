@@ -1,9 +1,15 @@
 volumes:
   database_data: {}
 
+networks:
+  backend:
+
 services:
   database:
+    container_name: ideal-octo-telegram_database
     image: postgres
+    networks:
+      backend:
     volumes:
       - database_data:/var/lib/posgresql/data
     environment:
@@ -11,13 +17,17 @@ services:
       - POSTGRES_USER=${DATABASE_USER}
       - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
   load_balancer:
+    container_name: ideal-octo-telegram_load_balancer
     build: 
       context: .
       dockerfile: docker/Dockerfile.nginx
     ports:
       - 80:80
   api:
+    container_name: ideal-octo-telegram_api
     image: grimsleepless/ideal-octo-telegram
+    networks:
+      backend:
     environment:
       - DATABASE_NAME=${DATABASE_NAME}
       - DATABASE_USER=${DATABASE_USER}
