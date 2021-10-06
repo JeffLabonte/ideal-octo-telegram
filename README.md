@@ -15,8 +15,8 @@ API to control your devices on your network and make all your automation scripts
 
 * Install some postgresql dependencies to compile the code:
     * On Linux:
-        * Ubuntu/Debian: `sudo apt install libpq-devel`
-        * Fedora 34: `sudo dnf install libpq-devel`
+        * Ubuntu/Debian: `sudo apt install libpq-devel python3-dev`
+        * Fedora 34: `sudo dnf install libpq-devel python-devel`
     * On macOS:
         * `brew install postgresql`
 * Before running `make install`
