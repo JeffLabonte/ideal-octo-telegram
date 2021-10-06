@@ -17,3 +17,5 @@ migrate: install makemigrations
 test_integration:
 	cd ${WORKDIR_DIRECTORY} && poetry run py.test --ds=settings.settings tests
 
+build_container:
+	docker build -t grimsleepless/ideal-octo-telegram . && docker push grimsleepless/ideal-octo-telegram
