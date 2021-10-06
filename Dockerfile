@@ -7,14 +7,14 @@ ENV DATABASE_NAME=${DATABASE_NAME}
 ENV DATABASE_USER=${DATABASE_USER}
 ENV DATABASE_PASSWORD=${DATABASE_PASSWORD}
 
-RUN apt update && apt install -y apt-utils build-essential curl && curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python3
-
-ENV PATH="${PATH}:/root/.poetry/bin"
+RUN apt update && apt install -y apt-utils build-essential curl && \
+    pip install poetry
 
 COPY entrypoint.sh /opt/code/
-COPY src/* /opt/code/
 COPY pyproject.toml poetry.lock /opt/code/
+RUN poetry config virtualenvs.create false && \
+    poetry install --no-interaction --no-dev --no-ansi
 
-RUN poetry config virtualenvs.create false && poetry install --no-interaction --no-dev
 
+COPY src/ /opt/code/
 ENTRYPOINT ["./entrypoint.sh"]
