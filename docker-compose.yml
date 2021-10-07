@@ -33,6 +33,7 @@ services:
   api:
     container_name: api 
     image: grimsleepless/ideal-octo-telegram
+    build: .
     networks:
       backend:
       outside:
