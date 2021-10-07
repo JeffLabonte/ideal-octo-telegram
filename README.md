@@ -6,6 +6,9 @@ API to control your devices on your network and make all your automation scripts
 ## Requirements:
 
 * Docker
+* Docker-Compose
+* Ansible:
+    * To Deploy on your own servers
 * Python 3.9
 * Postgresql
 * [Poetry](https://python-poetry.org/docs/#installation)
