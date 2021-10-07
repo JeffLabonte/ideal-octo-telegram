@@ -3,6 +3,7 @@ volumes:
 
 networks:
   backend:
+  outside:
 
 services:
   database:
@@ -18,16 +19,23 @@ services:
       - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
   load_balancer:
     container_name: load_balancer
+    image: grimsleepless/ideal-octo-telegram_nginx
     build: 
-      context: .
-      dockerfile: docker/Dockerfile.nginx
+      context: docker/.
+      dockerfile: Dockerfile.nginx
+    networks:
+      outside:
     ports:
       - 80:80
+    depends_on:
+      api:
+        condition: service_healthy
   api:
     container_name: api 
     image: grimsleepless/ideal-octo-telegram
     networks:
       backend:
+      outside:
     environment:
       - DATABASE_NAME=${DATABASE_NAME}
       - DATABASE_USER=${DATABASE_USER}
