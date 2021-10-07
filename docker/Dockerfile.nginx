@@ -1,2 +1,4 @@
 FROM nginx
 LABEL maintainer="grimsleepless@protonmail.com"
+
+COPY nginx.conf /etc/nginx/nginx.conf
