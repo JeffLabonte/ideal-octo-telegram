@@ -1,0 +1,5 @@
+---
+- hosts: webservers
+  roles:
+    - "roles/deploy_server"
+
