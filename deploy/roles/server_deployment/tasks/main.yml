@@ -4,3 +4,8 @@
     repo: https://github.com/JeffLabonte/ideal-octo-telegram.git
     dest: ~/ideal-octo-telegram/
     version: main
+
+- name: Run docker-compose build
+  community.docker.docker_compose:
+    project_src: ~/ideal-octo-telegram/
+    build: yes
