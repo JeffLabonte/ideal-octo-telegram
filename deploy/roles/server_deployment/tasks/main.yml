@@ -1,2 +1,6 @@
 ---
-# tasks file for server_deployment
+- name: Git ideal-octo-telegram
+  ansible.builtin.git:
+    repo: https://github.com/JeffLabonte/ideal-octo-telegram.git
+    dest: ~/ideal-octo-telegram/
+    version: main

@@ -1,5 +1,5 @@
 ---
 - hosts: webservers
   roles:
-    - "roles/deploy_server"
+    - roles/server_deployment
 
