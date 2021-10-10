@@ -30,4 +30,36 @@ API to control your devices on your network and make all your automation scripts
 * Prod build run on port`80`
 * You can build images by running `docker-compose build`
 
+## Deployment with Ansible:
+
+You need to copy the hosts.yml.example. You can do that my running
+the following command:
+
+```bash
+make copy_new_config
+```
+
+The hosts.yml can take that form:
+
+```yml
+webservers:
+    hosts:
+        server_a:
+            ansible_connection: ssh
+            ansible_host: "<the IP address or hostname>"
+            ansible_user: "<User to use>"
+            ansible_password: "<User's password>"
+            ansible_become_password: "<sudo password>"
+```
+***Note: You can use `ansible-vault` to encrypt your `hosts.yml`***
+Run the playbook:
+
+```bash
+# If deploy/hosts.yml is encrypted with ansible-vault
+ansible-playbook -i deploy/hosts.yml deploy/deploy_code.yml --ask-pass
+
+# If deploy/hosts.yml is not encrypted with ansible-vault
+ansible-playbook -i deploy/hosts.yml deploy/deploy_code.yml -e "DATABASE_USERNAME=a_database_username" -e "DATABASE_PASSWORD=a_long_password" -e
+"DATABASE_NAME=ideal-octo-telegram"
+```
 
