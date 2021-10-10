@@ -1,11 +1,36 @@
 ---
+- name: Install Debian/Ubuntu dependencies
+  ansible.builtin.apt:
+    name: "{{ apt_dependencies }}"
+    state: latest
+    update_cache: yes
+  become: yes
+
+- name: Install Pip dependecies
+  ansible.builtin.pip:
+    name: "{{ pip_dependencies }}"
+    state: latest
+  become: yes
+
 - name: Git ideal-octo-telegram
   ansible.builtin.git:
     repo: https://github.com/JeffLabonte/ideal-octo-telegram.git
     dest: ~/ideal-octo-telegram/
     version: main
 
+- name: Copy Template to Server
+  ansible.builtin.template:
+    src: files/dot_env.j2
+    dest: ~/ideal-octo-telegram/.env
+    mode: "0644"
+
+
 - name: Run docker-compose build
   community.docker.docker_compose:
     project_src: ~/ideal-octo-telegram/
     build: yes
+
+- name: remove env file
+  ansible.builtin.file:
+    path: ~/ideal-octo-telegram/.env
+    state: absent

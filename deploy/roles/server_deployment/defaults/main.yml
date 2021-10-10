@@ -1,2 +1,8 @@
 ---
 # defaults file for server_deployment
+apt_dependencies:
+  - python3-pip
+
+pip_dependencies:
+  - docker
+  - docker-compose
