@@ -7,6 +7,7 @@ API to control your devices on your network and make all your automation scripts
 
 * Docker
 * Docker-Compose
+    * (Version >= 1.28)[https://github.com/docker/compose]
 * Ansible:
     * To Deploy on your own servers
 * Python 3.9
@@ -32,6 +33,8 @@ API to control your devices on your network and make all your automation scripts
 
 ## Deployment with Ansible:
 
+If you are here, I consider that you have `docker` and `docker-compose` installed on your server
+
 You need to copy the hosts.yml.example. You can do that my running
 the following command:
 
@@ -51,6 +54,7 @@ webservers:
             ansible_password: "<User's password>"
             ansible_become_password: "<sudo password>"
 ```
+
 ***Note: You can use `ansible-vault` to encrypt your `hosts.yml`***
 Run the playbook:
 
