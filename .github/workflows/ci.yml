@@ -24,7 +24,7 @@ jobs:
         poetry install
     - name: Run Integration Tests
       run: |
-        make test_integraion
+        make test_integration
     - name: "Upload coverage to Codecov"
       uses: codecov/codecov-action@v1
       with:
