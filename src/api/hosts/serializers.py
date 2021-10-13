@@ -36,12 +36,8 @@ class CredentialsWriteSerializer(serializers.ModelSerializer):
 
 
 class HostsWriteSerialzer(serializers.ModelSerializer):
-    ip_address = serializers.CharField(
-        required=True, validators=[]
-    )  # TODO Add IP Address Validator
-    port = serializers.IntegerField(
-        required=True, validators=[]
-    )  # TODO Limit to maximum port available
+    ip_address = serializers.CharField(required=True, validators=[])  # TODO Add IP Address Validator
+    port = serializers.IntegerField(required=True, validators=[])  # TODO Limit to maximum port available
     protocol = serializers.ChoiceField(required=True, choices=None)  # TODO Add Choices
 
     credentials = CredentialsWriteSerializer(required=True)
