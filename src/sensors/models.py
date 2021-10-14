@@ -6,20 +6,6 @@ from common.models.mixins.timestamps import TimeStampMixin
 from sensors.constants import TYPE_CHOICES
 
 
-class Device(
-    TimeStampMixin,
-    models.Model,
-):
-    id = models.UUIDField(
-        primary_key=True,
-        default=uuid.uuid4,
-    )
-    device_name = models.CharField(
-        max_length=60,
-        unique=True,
-    )
-
-
 class IpAddress(
     TimeStampMixin,
     models.Model,
@@ -28,8 +14,8 @@ class IpAddress(
         primary_key=True,
         default=uuid.uuid4,
     )
-    device = models.ForeignKey(
-        to=Device,
+    gateway = models.ForeignKey(
+        to="gateway.Gateway",
         on_delete=models.CASCADE,
     )
     ip_address = models.CharField(
@@ -50,12 +36,9 @@ class Sensors(
         choices=TYPE_CHOICES,
     )
     sensors_data = models.JSONField()
-    device = models.ForeignKey(
-        to=Device,
+    gateway = models.ForeignKey(
+        to="gateway.Gateway",
         default=None,
         null=True,
         on_delete=models.CASCADE,
-    )
-    timestamp = models.DateTimeField(
-        auto_now_add=True,
     )
