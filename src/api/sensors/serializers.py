@@ -1,12 +1,13 @@
-import itertools
 from rest_framework import serializers
+from gateway.models import Gateway
 
-from sensors.models import Device, IpAddress, Sensors
+from sensors.models import IpAddress, Sensors
 
 
-class DeviceWriteSerializer(serializers.ModelSerializer):
+class GatewayWriteSerializer(serializers.ModelSerializer):
     device_name = serializers.CharField(
         required=True,
+        source="name"
     )
 
     def _get_ip_from_context(self) -> str:
@@ -22,20 +23,20 @@ class DeviceWriteSerializer(serializers.ModelSerializer):
         return instance
 
     class Meta:
-        model = Device
+        model = Gateway
         fields = ("device_name",)
 
 
 class SensorsWriteSerializer(serializers.ModelSerializer):
     sensors_data = serializers.JSONField(required=True)
-    device = DeviceWriteSerializer(required=True)
+    gateway = GatewayWriteSerializer(required=True)
 
     def create(self, validated_data):
-        device_instance = self.fields["device"].create(
+        gateway_instance = self.fields["gateway"].create(
             validated_data=validated_data.pop("device"),
         )
         instance = super().create(validated_data=validated_data)
-        instance.device = device_instance
+        instance.device = gateway_instance
         instance.save()
         return instance
 
