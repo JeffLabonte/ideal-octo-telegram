@@ -3,6 +3,7 @@ import uuid
 from django.db import models
 
 from sensor_report.constants import SUPPORTED_TYPES
+from sensors.models import Sensors
 
 
 class SensorData(models.Model):
@@ -13,4 +14,8 @@ class SensorData(models.Model):
     )
     value = models.CharField(
         max_length=20,
+    )
+    sensor = models.ForeignKey(
+        Sensors,
+        on_delete=models.CASCADE,
     )

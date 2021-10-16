@@ -35,7 +35,6 @@ class Sensors(
         max_length=30,
         choices=TYPE_CHOICES,
     )
-    sensors_data = models.JSONField()
     gateway = models.ForeignKey(
         to="gateway.Gateway",
         default=None,
