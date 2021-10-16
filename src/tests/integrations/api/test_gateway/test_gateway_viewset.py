@@ -1,6 +1,6 @@
 import pytest
 
-from django.db.contrib import User
+from django.contrib.auth.models import User
 from pytest_drf import ViewSetTest
 from pytest_drf.authentication import AsUser
 from pytest_lambda import lambda_fixture
