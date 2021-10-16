@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     # Local
     "gateway",
     "sensors",
+    "sensor_report",
 ]
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
