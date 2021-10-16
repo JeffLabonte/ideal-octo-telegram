@@ -18,3 +18,8 @@ class SensorData(models.Model):
         "sensors.Sensors",
         on_delete=models.CASCADE,
     )
+    target = models.ForeignKey(
+        "sensor_target.SensorTarget",
+        on_delete=models.CASCADE,
+        null=True,
+    )
