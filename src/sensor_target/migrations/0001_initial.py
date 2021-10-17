@@ -8,16 +8,15 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='SensorTarget',
+            name="SensorTarget",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, primary_key=True, serialize=False)),
-                ('type', models.CharField(choices=[('plant', 'plant'), ('room', 'room')], max_length=10)),
-                ('name', models.CharField(max_length=120, unique=True)),
+                ("id", models.UUIDField(default=uuid.uuid4, primary_key=True, serialize=False)),
+                ("type", models.CharField(choices=[("plant", "plant"), ("room", "room")], max_length=10)),
+                ("name", models.CharField(max_length=120, unique=True)),
             ],
         ),
     ]

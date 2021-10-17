@@ -36,6 +36,6 @@ class TestGatewayViewSet(
         data = static_fixture(
             {
                 "name": "basement rpi",
-                "mac_address": "aa:bb:cc:dd:ee:ff"
+                "mac_address": "aa:bb:cc:dd:ee:ff",
             },
         )

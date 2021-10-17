@@ -7,7 +7,9 @@ class GatewayWriteSerializer(serializers.ModelSerializer):
     name = serializers.CharField(
         max_length=50,
     )
-    mac_address = serializers.CharField(max_length=17,)
+    mac_address = serializers.CharField(
+        max_length=17,
+    )
 
     class Meta:
         model = Gateway

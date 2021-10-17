@@ -10,34 +10,42 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('gateway', '0001_initial'),
+        ("gateway", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Sensors',
+            name="Sensors",
             fields=[
-                ('created_on', models.DateTimeField(auto_now_add=True)),
-                ('modified_on', models.DateTimeField(auto_now=True)),
-                ('id', models.UUIDField(default=uuid.uuid4, primary_key=True, serialize=False)),
-                ('type', models.CharField(choices=[('humidity', 'humidity'), ('temperature', 'temperature')], max_length=30)),
-                ('gateway', models.ForeignKey(default=None, null=True, on_delete=django.db.models.deletion.CASCADE, to='gateway.gateway')),
+                ("created_on", models.DateTimeField(auto_now_add=True)),
+                ("modified_on", models.DateTimeField(auto_now=True)),
+                ("id", models.UUIDField(default=uuid.uuid4, primary_key=True, serialize=False)),
+                (
+                    "type",
+                    models.CharField(choices=[("humidity", "humidity"), ("temperature", "temperature")], max_length=30),
+                ),
+                (
+                    "gateway",
+                    models.ForeignKey(
+                        default=None, null=True, on_delete=django.db.models.deletion.CASCADE, to="gateway.gateway"
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
         migrations.CreateModel(
-            name='IpAddress',
+            name="IpAddress",
             fields=[
-                ('created_on', models.DateTimeField(auto_now_add=True)),
-                ('modified_on', models.DateTimeField(auto_now=True)),
-                ('id', models.UUIDField(default=uuid.uuid4, primary_key=True, serialize=False)),
-                ('ip_address', models.CharField(max_length=15)),
-                ('gateway', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='gateway.gateway')),
+                ("created_on", models.DateTimeField(auto_now_add=True)),
+                ("modified_on", models.DateTimeField(auto_now=True)),
+                ("id", models.UUIDField(default=uuid.uuid4, primary_key=True, serialize=False)),
+                ("ip_address", models.CharField(max_length=15)),
+                ("gateway", models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to="gateway.gateway")),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
     ]

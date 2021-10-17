@@ -8,21 +8,20 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Gateway',
+            name="Gateway",
             fields=[
-                ('created_on', models.DateTimeField(auto_now_add=True)),
-                ('modified_on', models.DateTimeField(auto_now=True)),
-                ('id', models.UUIDField(default=uuid.uuid4, primary_key=True, serialize=False)),
-                ('name', models.CharField(max_length=50, unique=True)),
-                ('mac_address', models.CharField(max_length=17, unique=True)),
+                ("created_on", models.DateTimeField(auto_now_add=True)),
+                ("modified_on", models.DateTimeField(auto_now=True)),
+                ("id", models.UUIDField(default=uuid.uuid4, primary_key=True, serialize=False)),
+                ("name", models.CharField(max_length=50, unique=True)),
+                ("mac_address", models.CharField(max_length=17, unique=True)),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
     ]
