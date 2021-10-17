@@ -36,10 +36,6 @@ class TestGatewayViewSet(
         data = static_fixture(
             {
                 "name": "basement rpi",
-                "sensors": [
-                    {
-                        "type": "temperature",
-                    },
-                ],
+                "mac_address": "aa:bb:cc:dd:ee:ff"
             },
         )
