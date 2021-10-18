@@ -3,11 +3,13 @@ import pytest
 from django.contrib.auth.models import User
 from pytest_drf import ViewSetTest
 from pytest_drf.authentication import AsUser
-from pytest_drf.status import Returns201
+from pytest_drf.status import Returns200, Returns201
 from pytest_drf.util.urls import url_for
-from pytest_drf.views import UsesListEndpoint, UsesPostMethod
+from pytest_drf.views import UsesGetMethod, UsesListEndpoint, UsesPostMethod
 from pytest_lambda import lambda_fixture
 from pytest_lambda.fixtures import static_fixture
+
+from gateway.models import Gateway
 
 user = lambda_fixture(
     lambda: User.objects.create(
@@ -38,4 +40,25 @@ class TestGatewayViewSet(
                 "name": "basement rpi",
                 "mac_address": "aa:bb:cc:dd:ee:ff",
             },
+        )
+
+    class TestList(
+        UsesGetMethod,
+        UsesListEndpoint,
+        Returns200,
+    ):
+        key_value = lambda_fixture(
+            lambda: [
+                Gateway.objects.create(**gateway_data)
+                for gateway_data in [
+                    {
+                        "name": "basement rpi",
+                        "mac_address": "aa:bb:cc:dd:ee:ff",
+                    },
+                    {
+                        "name": "rpi",
+                        "mac_address": "aa:bb:cc:dd:ee:ff",
+                    },
+                ]
+            ]
         )
