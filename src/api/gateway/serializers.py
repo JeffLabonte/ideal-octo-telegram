@@ -17,3 +17,16 @@ class GatewayWriteSerializer(serializers.ModelSerializer):
             "name",
             "mac_address",
         )
+
+
+class GatewayGetSerializer(serializers.ModelSerializer):
+    name = serializers.CharField()
+    mac_address = serializers.CharField()
+
+    class Meta:
+        model = Gateway
+        fields = (
+            "id",
+            "name",
+            "mac_address",
+        )
