@@ -8,6 +8,7 @@ from gateway.models import Gateway
 class GatewayViewSet(
     mixins.CreateModelMixin,
     mixins.ListModelMixin,
+    mixins.RetrieveModelMixin,
     CommonViewSet,
 ):
     queryset = Gateway.objects.all()
@@ -15,4 +16,5 @@ class GatewayViewSet(
     serializer_class = {
         "create": GatewayWriteSerializer,
         "list": GatewayGetSerializer,
+        "retrieve": GatewayGetSerializer,
     }
