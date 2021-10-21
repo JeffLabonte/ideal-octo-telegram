@@ -685,7 +685,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
 [[package]]
 name = "pyjwt"
-version = "2.2.0"
+version = "2.3.0"
 description = "JSON Web Token implementation in Python"
 category = "main"
 optional = false
@@ -851,6 +851,17 @@ python-versions = ">=3.6,<4.0"
 [package.dependencies]
 pytest = ">=3.6,<7"
 wrapt = ">=1.11.0,<2.0.0"
+
+[[package]]
+name = "pytest-testdox"
+version = "2.0.1"
+description = "A testdox format reporter for pytest"
+category = "dev"
+optional = false
+python-versions = ">=3.5"
+
+[package.dependencies]
+pytest = ">=3.7.0"
 
 [[package]]
 name = "python3-openid"
@@ -1023,7 +1034,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "9726bc4f6a5e156bc584de4d4984909c934fd6102846fd2a5ffac244f419c61f"
+content-hash = "943c56a28c2cfea3d7e5b0fdb05e77e39e45b7a922ff4c5e9f3cd31f89838956"
 
 [metadata.files]
 amqp = [
@@ -1444,8 +1455,8 @@ pyflakes = [
     {file = "pyflakes-2.4.0.tar.gz", hash = "sha256:05a85c2872edf37a4ed30b0cce2f6093e1d0581f8c19d7393122da7e25b2b24c"},
 ]
 pyjwt = [
-    {file = "PyJWT-2.2.0-py3-none-any.whl", hash = "sha256:b0ed5824c8ecc5362e540c65dc6247567db130c4226670bf7699aec92fb4dae1"},
-    {file = "PyJWT-2.2.0.tar.gz", hash = "sha256:a0b9a3b4e5ca5517cac9f1a6e9cd30bf1aa80be74fcdf4e28eded582ecfcfbae"},
+    {file = "PyJWT-2.3.0-py3-none-any.whl", hash = "sha256:e0c4bb8d9f0af0c7f5b1ec4c5036309617d03d56932877f2f7a0beeb5318322f"},
+    {file = "PyJWT-2.3.0.tar.gz", hash = "sha256:b888b4d56f06f6dcd777210c334e69c737be74755d3e5e9ee3fe67dc18a0ee41"},
 ]
 pynacl = [
     {file = "PyNaCl-1.4.0-cp27-cp27m-macosx_10_10_x86_64.whl", hash = "sha256:ea6841bc3a76fa4942ce00f3bda7d436fda21e2d91602b9e21b7ca9ecab8f3ff"},
@@ -1505,6 +1516,10 @@ pytest-fixture-order = [
 pytest-lambda = [
     {file = "pytest-lambda-1.2.5.tar.gz", hash = "sha256:1c7dd2a29bd303121fd03a79fe20854691b8a0dadc77931e31d60380ccb13104"},
     {file = "pytest_lambda-1.2.5-py3-none-any.whl", hash = "sha256:37d485609fe0112a91d7b2d086ad02643941b72870f6d7efcea50244ec5575cd"},
+]
+pytest-testdox = [
+    {file = "pytest-testdox-2.0.1.tar.gz", hash = "sha256:5cd1d986cb9e33edca4271c57541c57d868781c8090e551374d7e6eeafac465a"},
+    {file = "pytest_testdox-2.0.1-py2.py3-none-any.whl", hash = "sha256:ce9d516c047f718e7707975582e52d6ac922330bdcf87837f8d3fd619057af6f"},
 ]
 python3-openid = [
     {file = "python3-openid-3.2.0.tar.gz", hash = "sha256:33fbf6928f401e0b790151ed2b5290b02545e8775f982485205a066f874aaeaf"},
