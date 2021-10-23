@@ -23,7 +23,7 @@ class IpAddress(
     )
 
 
-class Sensors(
+class Sensor(
     TimeStampMixin,
     models.Model,
 ):

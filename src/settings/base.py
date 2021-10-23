@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     "corsheaders",
     # Local
     "gateway",
-    "sensors",
+    "sensor",
     "sensor_report",
     "sensor_target",
 ]
