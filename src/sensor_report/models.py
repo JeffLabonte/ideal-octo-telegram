@@ -15,7 +15,7 @@ class SensorData(models.Model):
         max_length=20,
     )
     sensor = models.ForeignKey(
-        "sensors.Sensors",
+        "sensor.Sensor",
         on_delete=models.CASCADE,
     )
     target = models.ForeignKey(

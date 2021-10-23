@@ -3,7 +3,7 @@ import uuid
 from django.db import models
 
 from common.models.mixins.timestamps import TimeStampMixin
-from sensors.constants import TYPE_CHOICES
+from sensor.constants import TYPE_CHOICES
 
 
 class IpAddress(
