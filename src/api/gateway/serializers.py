@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api.sensor.serializers import SensorsWriteSerializer
+from api.sensor.serializers import SensorGetSerializer, SensorWriteSerializer
 
 from gateway.models import Gateway
 from sensor.models import Sensor
@@ -15,8 +15,10 @@ class GatewayWriteSerializer(serializers.ModelSerializer):
     mac_address = serializers.CharField(
         max_length=17,
     )
-    sensors = SensorsWriteSerializer(
+    sensors = SensorWriteSerializer(
         many=True,
+        write_only=True,
+        required=False,
     )
 
     def create(self, validated_data):
@@ -39,6 +41,7 @@ class GatewayWriteSerializer(serializers.ModelSerializer):
 class GatewayGetSerializer(serializers.ModelSerializer):
     name = serializers.CharField()
     mac_address = serializers.CharField()
+    sensors = SensorGetSerializer(many=True)
 
     class Meta:
         model = Gateway
