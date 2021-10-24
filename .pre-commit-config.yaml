@@ -10,9 +10,9 @@ repos:
     - id: flake8
   - repo: local
     hooks:
-      - id: tests
-        name: Run Tests
-        entry: make test
+      - id: integration_tests
+        name: Run Integration Tests
+        entry: make test_integration
         pass_filenames: false
         language: system
         types: [python]
