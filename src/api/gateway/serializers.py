@@ -20,7 +20,7 @@ class GatewayWriteSerializer(serializers.ModelSerializer):
     )
 
     def create(self, validated_data):
-        sensors = validated_data.pop("sensors")
+        sensors = validated_data.pop("sensors", [])
         gateway = Gateway.objects.create(**validated_data)
         for sensor in sensors:
             Sensor.objects.create(gateway=gateway, **sensor)
