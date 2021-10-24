@@ -8,11 +8,3 @@ repos:
     rev: 3.7.9
     hooks:
     - id: flake8
-  - repo: local
-    hooks:
-      - id: integration_tests
-        name: Run Integration Tests
-        entry: make test_integration
-        pass_filenames: false
-        language: system
-        types: [python]
