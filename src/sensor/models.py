@@ -17,6 +17,7 @@ class IpAddress(
     gateway = models.ForeignKey(
         to="gateway.Gateway",
         on_delete=models.CASCADE,
+        related_name="gateway_sensors",
     )
     ip_address = models.CharField(
         max_length=15,
