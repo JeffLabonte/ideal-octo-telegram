@@ -39,6 +39,14 @@ class TestGatewayViewSet(
             {
                 "name": "basement rpi",
                 "mac_address": "aa:bb:cc:dd:ee:ff",
+                "sensors": [
+                    {
+                        "type": "humidity",
+                    },
+                    {
+                        "type": "temperature",
+                    },
+                ],
             },
         )
 
