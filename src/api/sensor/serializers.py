@@ -21,4 +21,7 @@ class SensorGetSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Sensor
-        fields = ("type",)
+        fields = (
+            "id",
+            "type",
+        )

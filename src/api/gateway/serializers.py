@@ -41,7 +41,10 @@ class GatewayWriteSerializer(serializers.ModelSerializer):
 class GatewayGetSerializer(serializers.ModelSerializer):
     name = serializers.CharField()
     mac_address = serializers.CharField()
-    sensors = SensorGetSerializer(many=True)
+    sensors = SensorGetSerializer(
+        many=True,
+        source="gateway_sensors",
+    )
 
     class Meta:
         model = Gateway
@@ -49,4 +52,5 @@ class GatewayGetSerializer(serializers.ModelSerializer):
             "id",
             "name",
             "mac_address",
+            "sensors",
         )
