@@ -6,6 +6,9 @@ from sensor.models import Sensor
 
 
 class GatewayWriteSerializer(serializers.ModelSerializer):
+    id = serializers.UUIDField(
+        read_only=True,
+    )
     name = serializers.CharField(
         max_length=50,
     )
@@ -26,6 +29,7 @@ class GatewayWriteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Gateway
         fields = (
+            "id",
             "name",
             "mac_address",
             "sensors",
