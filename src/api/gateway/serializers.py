@@ -1,3 +1,4 @@
+from django.db import transaction
 from rest_framework import serializers
 from api.sensor.serializers import SensorGetSerializer, SensorWriteSerializer
 
@@ -20,12 +21,18 @@ class GatewayWriteSerializer(serializers.ModelSerializer):
         write_only=True,
         required=False,
     )
+    gateway_sensors = SensorGetSerializer(
+        many=True,
+        read_only=True,
+    )
 
+    @transaction.atomic
     def create(self, validated_data):
         sensors = validated_data.pop("sensors", [])
         gateway = Gateway.objects.create(**validated_data)
-        for sensor in sensors:
-            Sensor.objects.create(gateway=gateway, **sensor)
+        sensors = [Sensor(gateway=gateway, **sensor) for sensor in sensors]
+        Sensor.objects.bulk_create(sensors)
+
         return gateway
 
     class Meta:
@@ -35,6 +42,7 @@ class GatewayWriteSerializer(serializers.ModelSerializer):
             "name",
             "mac_address",
             "sensors",
+            "gateway_sensors",
         )
 
 
