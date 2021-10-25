@@ -1,4 +1,5 @@
 [![CI](https://github.com/JeffLabonte/ideal-octo-telegram/actions/workflows/ci.yml/badge.svg)](https://github.com/JeffLabonte/ideal-octo-telegram/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/JeffLabonte/ideal-octo-telegram/branch/main/graph/badge.svg?token=Utdpt898bV)](https://codecov.io/gh/JeffLabonte/ideal-octo-telegram)
 
 # ideal-octo-telegram
 
