@@ -10,6 +10,8 @@ from pytest_lambda import lambda_fixture
 from pytest_lambda.fixtures import static_fixture
 
 from gateway.models import Gateway
+from sensor.models import Sensor
+
 
 user = lambda_fixture(
     lambda: User.objects.create(
@@ -57,7 +59,16 @@ class TestGatewayViewSet(
     ):
         key_value = lambda_fixture(
             lambda: [
-                Gateway.objects.create(**gateway_data)
+                Gateway.objects.create(
+                    **gateway_data,
+                    sensors=[
+                        Sensor.objects.create(**sensor)
+                        for sensor in [
+                            {"type": "temperature"},
+                            {"type": "humidity"},
+                        ]
+                    ],
+                )
                 for gateway_data in [
                     {
                         "name": "basement rpi",
