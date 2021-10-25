@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from rest_framework import serializers
 
 from sensor.constants import TYPE_CHOICES
@@ -10,18 +12,25 @@ class SensorWriteSerializer(
     type = serializers.ChoiceField(
         choices=TYPE_CHOICES,
     )
+    name = serializers.CharField(
+        max_length=60,
+        required=False,
+        default=lambda: str(datetime.utcnow()),
+    )
 
     class Meta:
         model = Sensor
-        fields = ("type",)
+        fields = (
+            "type",
+            "name",
+        )
 
 
 class SensorGetSerializer(serializers.ModelSerializer):
-    type = serializers.CharField()
-
     class Meta:
         model = Sensor
         fields = (
             "id",
             "type",
+            "name",
         )
