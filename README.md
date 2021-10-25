@@ -10,7 +10,7 @@ API to control your devices on your network and make all your automation scripts
 
 * Docker
 * Docker-Compose
-    * (Version >= 1.28)[https://github.com/docker/compose]
+    * [Version >= 1.28](https://github.com/docker/compose)
 * Ansible:
     * To Deploy on your own servers
 * Python 3.9
