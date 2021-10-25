@@ -1,3 +1,5 @@
+[![CI](https://github.com/JeffLabonte/ideal-octo-telegram/actions/workflows/ci.yml/badge.svg)](https://github.com/JeffLabonte/ideal-octo-telegram/actions/workflows/ci.yml)
+
 # ideal-octo-telegram
 
 API to control your devices on your network and make all your automation scripts available at one place
