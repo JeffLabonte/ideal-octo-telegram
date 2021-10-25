@@ -25,7 +25,6 @@ flake8 = "^4.0.1"
 isort = "^5.9.3"
 pre-commit = "^2.15.0"
 pynvim = "^0.4.3"
-pytest-drf = "^1.1.2"
 pytest-django = "^4.4.0"
 pytest-testdox = "^2.0.1"
 
