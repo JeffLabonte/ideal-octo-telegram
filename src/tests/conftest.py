@@ -1,34 +1,22 @@
-from django.urls.base import reverse
 import pytest
 
 from django.contrib.auth import get_user_model
+from rest_framework.authtoken.models import Token
+from rest_framework.test import APIClient
 
 
 @pytest.fixture()
-def api_key(client):
+def auth_client():
+    # TODO Fix login with https://www.django-rest-framework.org/api-guide/testing/
     test_user = "user"
     test_password = "test1234!!!"
-
-    register_response = client.post(
-        reverse("rest_register"),
-        {
-            "username": test_user,
-            "email": "test@test.com",
-            "password1": test_password,
-            "password2": test_password,
-        },
+    user = get_user_model().objects.create(
+        username=test_user,
+        password=test_password,
     )
-    assert register_response.status_code == 201
-
-    login_response = client.post(
-        reverse("rest_login"),
-        {
-            "username": test_user,
-            "password": test_password,
-        },
-    )
-
-    assert login_response.status_code == 200
-    yield login_response.json()["key"]
+    client = APIClient()
+    token = Token.objects.create(user=user)
+    client.credentials(HTTP_AUTHORIZATION=f"Token {token.key}")
+    yield client
 
     get_user_model().objects.all().delete()
