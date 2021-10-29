@@ -42,13 +42,14 @@ def setup():
 
 
 @pytest.mark.django_db
-def test__gateway_viewset__list_gateway(api_key, client):
+def test__gateway_viewset__list_gateway(
+    auth_client,
+):
     gateways, sensors = tuple(setup())[0]
 
     url = reverse("gateway-list")
-    response = client.get(
+    response = auth_client.get(
         path=url,
-        HTTP_AUTHORIZATION=f"Token {api_key}",
     )
 
     assert response.status_code == 200
