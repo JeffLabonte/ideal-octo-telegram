@@ -5,6 +5,10 @@ from api.gateway.views import GatewayViewSet
 
 router = SimpleRouter()
 
-router.register("gateway", GatewayViewSet, basename="gateway")
+router.register(
+    "gateway",
+    GatewayViewSet,
+    basename="gateway",
+)
 
 urlpatterns = router.urls
