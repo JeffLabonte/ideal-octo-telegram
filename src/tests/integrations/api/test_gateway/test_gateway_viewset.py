@@ -1,3 +1,5 @@
+import json
+
 import pytest
 from django.urls.base import reverse
 from rest_framework.status import HTTP_200_OK, HTTP_201_CREATED
@@ -14,7 +16,7 @@ def setup():
             mac_address="aa:bb:cc:dd:ee:ff",
         ),
         Gateway.objects.create(
-            name="Gateway Test 2",
+            name="Gateway Test2",
             mac_address="aa:bb:cc:dd:dd:ff",
         ),
     ]
@@ -75,13 +77,23 @@ def test__gateway_viewset__create_gateway(
             {
                 "type": "temperature",
             },
+            {
+                "type": "humidity",
+            },
         ],
     }
 
     url = reverse("gateway-list")
     response = auth_client.post(
         path=url,
-        data=gateway_payload,
+        data=json.dumps(gateway_payload),
+        content_type="application/json",
     )
 
     assert response.status_code == HTTP_201_CREATED
+
+    response_json = response.json()
+
+    assert response_json["name"] == gateway_payload["name"]
+    assert response_json["mac_address"] == gateway_payload["mac_address"]
+    assert len(response_json["gateway_sensors"]) == len(gateway_payload["sensors"])
