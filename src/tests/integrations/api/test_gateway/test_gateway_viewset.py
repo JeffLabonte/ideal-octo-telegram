@@ -1,5 +1,7 @@
-from django.urls.base import reverse
 import pytest
+from django.urls.base import reverse
+from rest_framework.status import HTTP_200_OK, HTTP_201_CREATED
+from rest_framework.test import APIClient
 
 from gateway.models import Gateway
 from sensor.models import Sensor
@@ -52,7 +54,7 @@ def test__gateway_viewset__list_gateway(
         path=url,
     )
 
-    assert response.status_code == 200
+    assert response.status_code == HTTP_200_OK
 
     for gateway_response in response.json():
         sensor = Sensor(**gateway_response.pop("sensors", []))
@@ -60,3 +62,26 @@ def test__gateway_viewset__list_gateway(
 
         assert gateway in gateways
         assert sensor in sensors
+
+
+@pytest.mark.django_db
+def test__gateway_viewset__create_gateway(
+    auth_client: APIClient,
+):
+    gateway_payload = {
+        "name": "Gateway RPI 1",
+        "mac_address": "aa:bb:cc:dd:ee:ff",
+        "sensors": [
+            {
+                "type": "temperature",
+            },
+        ],
+    }
+
+    url = reverse("gateway-list")
+    response = auth_client.post(
+        path=url,
+        data=gateway_payload,
+    )
+
+    assert response.status_code == HTTP_201_CREATED
