@@ -25,5 +25,9 @@ class Sensor(
         choices=TYPE_CHOICES,
     )
     gateway = models.ForeignKey(
-        to="gateway.Gateway", default=None, null=True, on_delete=models.CASCADE, related_name="gateway_sensors"
+        to="gateway.Gateway",
+        default=None,
+        null=True,
+        on_delete=models.CASCADE,
+        related_name="gateway_sensors",
     )
