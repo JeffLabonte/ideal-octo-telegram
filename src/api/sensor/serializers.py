@@ -1,5 +1,3 @@
-from datetime import datetime
-
 from rest_framework import serializers
 
 from sensor.constants import TYPE_CHOICES
@@ -14,8 +12,7 @@ class SensorWriteSerializer(
     )
     name = serializers.CharField(
         max_length=60,
-        required=False,
-        default=lambda: str(datetime.utcnow()),
+        required=True,
     )
 
     class Meta:

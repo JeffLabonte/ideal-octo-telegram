@@ -22,18 +22,22 @@ def setup():
     ]
     sensors = [
         Sensor.objects.create(
+            name="Temp Sensor",
             type="temperature",
             gateway=gateways[0],
         ),
         Sensor.objects.create(
+            name="Humidity Sensor",
             type="humdity",
             gateway=gateways[0],
         ),
         Sensor.objects.create(
+            name="Humidity Sensor 1",
             type="temperature",
             gateway=gateways[1],
         ),
         Sensor.objects.create(
+            name="Humidity Sensor Upstairs",
             type="humdity",
             gateway=gateways[1],
         ),
@@ -75,9 +79,11 @@ def test__gateway_viewset__create_gateway(
         "mac_address": "aa:bb:cc:dd:ee:ff",
         "sensors": [
             {
+                "name": "Ambiant Temperature",
                 "type": "temperature",
             },
             {
+                "name": "Ambiant Relative Humidity",
                 "type": "humidity",
             },
         ],
