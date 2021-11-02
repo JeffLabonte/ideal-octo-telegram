@@ -9,6 +9,7 @@ class GatewayViewSet(
     mixins.CreateModelMixin,
     mixins.ListModelMixin,
     mixins.RetrieveModelMixin,
+    mixins.DestroyModelMixin,
     CommonViewSet,
 ):
     queryset = Gateway.objects.all()

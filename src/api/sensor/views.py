@@ -9,6 +9,7 @@ class SensorViewSet(
     mixins.ListModelMixin,
     mixins.CreateModelMixin,
     mixins.UpdateModelMixin,
+    mixins.DestroyModelMixin,
     CommonViewSet,
 ):
     queryset = Sensor.objects.all()
