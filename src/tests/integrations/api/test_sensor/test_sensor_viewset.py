@@ -12,9 +12,11 @@ from sensor.models import Sensor
 def create_sensors():
     sensors = [
         Sensor.objects.create(
+            name="Humidity",
             type="humidity",
         ),
         Sensor.objects.create(
+            name="Temperature",
             type="temperature",
         ),
     ]
