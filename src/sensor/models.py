@@ -19,6 +19,7 @@ class Sensor(
         max_length=60,
         blank=False,
         null=False,
+        unique=True,
     )
     type = models.CharField(
         max_length=30,
