@@ -10,7 +10,7 @@ class Sensor(
     TimeStampMixin,
     models.Model,
 ):
-    # TODO Add model/part number of the sensor: cross-referent to digi-key/Amazon
+    # TODO Add model/part number of the sensor: cross-reference to digi-key/Amazon
     id = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
