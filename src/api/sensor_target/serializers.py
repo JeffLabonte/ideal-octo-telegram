@@ -11,7 +11,7 @@ class SensorTargetWriteSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
-        meta = SensorTarget
+        model = SensorTarget
         fields = (
             "name",
             "type",
