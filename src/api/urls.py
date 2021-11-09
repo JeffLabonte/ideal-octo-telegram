@@ -6,6 +6,8 @@ from django.urls.conf import include
 api_urls = [
     path("/", include("api.sensor.urls")),
     path("/", include("api.gateway.urls")),
+    path("/", include("api.sensor_target.urls")),
+    path("/", include("api.sensor_report.urls")),
 ]
 
 
