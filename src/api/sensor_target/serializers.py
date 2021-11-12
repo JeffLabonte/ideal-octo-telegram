@@ -7,7 +7,7 @@ from sensor_target.models import SensorTarget
 class SensorTargetWriteSerializer(serializers.ModelSerializer):
     type = serializers.ChoiceField(
         choices=SUPPORTED_TARGET_TYPE,
-        blank=False,
+        required=True,
     )
 
     class Meta:
