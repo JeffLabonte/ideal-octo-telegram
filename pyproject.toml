@@ -27,6 +27,7 @@ pre-commit = "^2.15.0"
 pynvim = "^0.4.3"
 pytest-django = "^4.4.0"
 pytest-testdox = "^2.0.1"
+factory-boy = "^3.2.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
