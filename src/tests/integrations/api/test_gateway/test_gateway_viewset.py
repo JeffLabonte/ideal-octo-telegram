@@ -7,46 +7,28 @@ from rest_framework.test import APIClient
 
 from gateway.models import Gateway
 from sensor.models import Sensor
+from tests.factories.gateway_factory import GatewayFactory
+from tests.factories.sensor_factory import SensorFactory
 
 
 def setup():
-    gateways = [
-        Gateway.objects.create(
-            name="Gateway Test 1",
-            mac_address="aa:bb:cc:dd:ee:ff",
-        ),
-        Gateway.objects.create(
-            name="Gateway Test2",
-            mac_address="aa:bb:cc:dd:dd:ff",
-        ),
-    ]
+    gateways = GatewayFactory.create_batch(size=2)
     sensors = [
-        Sensor.objects.create(
-            name="Temp Sensor",
-            type="temperature",
+        SensorFactory.create(
             gateway=gateways[0],
         ),
-        Sensor.objects.create(
-            name="Humidity Sensor",
-            type="humdity",
+        SensorFactory.create(
             gateway=gateways[0],
         ),
-        Sensor.objects.create(
-            name="Humidity Sensor 1",
-            type="temperature",
+        SensorFactory.create(
             gateway=gateways[1],
         ),
-        Sensor.objects.create(
-            name="Humidity Sensor Upstairs",
-            type="humdity",
+        SensorFactory.create(
             gateway=gateways[1],
         ),
     ]
 
     yield gateways, sensors
-
-    for gateway in gateways:
-        gateway.delete()
 
 
 @pytest.mark.django_db
