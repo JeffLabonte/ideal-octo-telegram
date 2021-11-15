@@ -1,4 +1,5 @@
-from random import random
+import random
+
 from factory.declarations import LazyAttribute
 
 
