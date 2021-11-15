@@ -11,7 +11,7 @@ def setup():
 
 
 @pytest.mark.django_db
-def test__sensor_target_viewset__list_gateway(
+def test__sensor_target_viewset__list_sensor_target(
     auth_client: APIClient,
 ):
     sensor_targets = setup()
