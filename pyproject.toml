@@ -15,7 +15,7 @@ dj-rest-auth = "^2.1.11"
 django-allauth = "^0.46.0"
 gunicorn = "^20.1.0"
 psycopg2 = "^2.9.1"
-django-cors-headers = "^3.10.0"
+django-cors-headers = "^3.10.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"
