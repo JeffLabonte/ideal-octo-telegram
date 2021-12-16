@@ -359,7 +359,7 @@ Django = ">=2.2"
 
 [[package]]
 name = "djangorestframework"
-version = "3.13.0"
+version = "3.13.1"
 description = "Web APIs for Django, made easy."
 category = "main"
 optional = false
@@ -998,7 +998,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "eae3616ed0a06151e30f2232f2d676ba97ede27c55d6ea941aa50a72d918d1ab"
+content-hash = "2b561ca5f7a3b81441f73a1bb56d00717821b4397fc794f23f704339b62f23e0"
 
 [metadata.files]
 amqp = [
@@ -1220,8 +1220,8 @@ django-cors-headers = [
     {file = "django_cors_headers-3.10.1-py3-none-any.whl", hash = "sha256:1390b5846e9835b0911e2574409788af87cd9154246aafbdc8ec546c93698fe6"},
 ]
 djangorestframework = [
-    {file = "djangorestframework-3.13.0-py3-none-any.whl", hash = "sha256:48e64f08244fa0df9e2b8fbd405edec263d8e1251112a06d0073b546b7c86b9c"},
-    {file = "djangorestframework-3.13.0.tar.gz", hash = "sha256:8b987d5683f5b3553dd946d4972048d3117fc526cb0bc01a3f021e81af53f39e"},
+    {file = "djangorestframework-3.13.1-py3-none-any.whl", hash = "sha256:24c4bf58ed7e85d1fe4ba250ab2da926d263cd57d64b03e8dcef0ac683f8b1aa"},
+    {file = "djangorestframework-3.13.1.tar.gz", hash = "sha256:0c33407ce23acc68eca2a6e46424b008c9c02eceb8cf18581921d0092bc1f2ee"},
 ]
 factory-boy = [
     {file = "factory_boy-3.2.1-py2.py3-none-any.whl", hash = "sha256:eb02a7dd1b577ef606b75a253b9818e6f9eaf996d94449c9d5ebb124f90dc795"},
