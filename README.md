@@ -80,9 +80,9 @@ Run the playbook:
 
 ```bash
 # If deploy/hosts.yml is encrypted with ansible-vault
-ansible-playbook -i deploy/hosts.yml deploy/deploy_code.yml --ask-pass
+ansible-playbook -i deploy/hosts.yml deploy/deploy_code.yml --ask-vault-pass
 
 # If deploy/hosts.yml is not encrypted with ansible-vault
-ansible-playbook -i deploy/hosts.yml deploy/deploy_code.yml -e "DATABASE_USERNAME=a_database_username" -e "DATABASE_PASSWORD=a_long_password" -e
+ansible-playbook -i deploy/hosts.yml deploy/deploy_code.yml -e "DATABASE_USER=a_database_username" -e "DATABASE_PASSWORD=a_long_password" -e
 "DATABASE_NAME=ideal-octo-telegram"
 ```
