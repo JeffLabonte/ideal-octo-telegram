@@ -25,5 +25,3 @@ copy_new_config:
 		cp deploy/hosts.yml deploy/hosts.yml.back; \
 	fi
 	cp deploy/hosts.yml.example deploy/hosts.yml
-
-	
