@@ -14,7 +14,7 @@ makemigrations:
 migrate: install makemigrations
 	cd ${WORKDIR_DIRECTORY} && poetry run python3 manage.py migrate
 
-generate_docs:
+generate_docs: install
 	cd ${WORKDIR_DIRECTORY} && poetry run python3 manage.py spectacular --file ../docs/swagger.yml
 
 run_docs:
