@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "dj_rest_auth",
     "dj_rest_auth.registration",
     "corsheaders",
+    "drf_spectacular",
     # Local
     "gateway",
     "sensor",
@@ -158,4 +159,12 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "rest_framework.authentication.TokenAuthentication",
     ],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Ideal Octo Telegram - Your IoT Data Collector",
+    "DESCRIPTION": "API to register a device on to collect data...",
+    "VERSION": "0.0.1",
 }
