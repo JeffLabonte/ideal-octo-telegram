@@ -18,8 +18,7 @@ generate_docs: install
 	cd ${WORKDIR_DIRECTORY} && poetry run python3 manage.py spectacular --file ../docs/swagger.yml
 
 run_docs:
-	docker run -p 80:8080 -e SWAGGER_JSON=/schema.yml -v ${PWD}/docs/schema.yml:/schema.yml swaggerapi/swagger-ui
-	@echo "[-] Running on http://localhost:80"
+	docker run -p 80:8080 -e SWAGGER_JSON=/swagger.yml -v ${PWD}/docs/swagger.yml:/swagger.yml swaggerapi/swagger-ui
 
 test_integration:
 	cd ${WORKDIR_DIRECTORY} && poetry run py.test --cov=../src --cov-report term --cov-report xml --testdox --ds=settings.test tests
