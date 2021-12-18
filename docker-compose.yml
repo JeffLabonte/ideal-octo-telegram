@@ -20,7 +20,7 @@ services:
   load_balancer:
     container_name: load_balancer
     image: grimsleepless/ideal-octo-telegram_nginx
-    build: 
+    build:
       context: docker/.
       dockerfile: Dockerfile.nginx
     networks:
@@ -31,7 +31,7 @@ services:
       api:
         condition: service_healthy
   api:
-    container_name: api 
+    container_name: api
     image: grimsleepless/ideal-octo-telegram
     build: .
     networks:
@@ -48,5 +48,5 @@ services:
       test: ["CMD", "curl", "-f", "http://localhost:8000/admin/"]
       interval: 30s
       timeout: 10s
-      retries: 3
-      start_period: 30s
+      retries: 5
+      start_period: 60s
