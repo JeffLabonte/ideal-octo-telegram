@@ -16,6 +16,7 @@ django-allauth = "^0.47.0"
 gunicorn = "^20.1.0"
 psycopg2 = "^2.9.1"
 django-cors-headers = "^3.10.1"
+drf-spectacular = "^0.21.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"
@@ -28,7 +29,6 @@ pynvim = "^0.4.3"
 pytest-django = "^4.5.2"
 pytest-testdox = "^3.0.0"
 factory-boy = "^3.2.1"
-drf-spectacular = "^0.21.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
