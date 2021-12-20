@@ -19,3 +19,8 @@ class SensorReportGetSerializer(serializers.ModelField):
             "sensor",
             "target",
         ]
+
+
+class SensorReportWriteSerializer(serializers.ModelField):
+    class Meta:
+        model = SensorReport
