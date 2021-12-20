@@ -6,7 +6,7 @@ from sensor_report.models import SensorReport
 
 
 class SensorReportGetSerializer(serializers.ModelField):
-    id = serializers.URLField()
+    id = serializers.UUIDField()
     sensor = SensorGetSerializer()
     target = SensorTargetGetSerializer()
 
