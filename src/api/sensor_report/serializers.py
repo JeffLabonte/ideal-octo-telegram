@@ -18,7 +18,7 @@ class SensorReportGetSerializer(serializers.ModelField):
         model = SensorReport
         fields = [
             "id",
-            "type",
+            "value_type",
             "value",
             "sensor",
             "target",
