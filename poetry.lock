@@ -617,7 +617,7 @@ pyparsing = ">=2.0.2,<3.0.5 || >3.0.5"
 
 [[package]]
 name = "paramiko"
-version = "2.8.1"
+version = "2.9.0"
 description = "SSH2 protocol library"
 category = "main"
 optional = false
@@ -1061,7 +1061,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "5f8438bc9a551b0ed308439ff8bb80be5d421bb45a2c19643f81a103c6118f26"
+content-hash = "1ae2a41ddf7429446db293b69cfd355c136ddedeaca4db68d12b2fcfc9aade89"
 
 [metadata.files]
 amqp = [
@@ -1452,8 +1452,8 @@ packaging = [
     {file = "packaging-21.3.tar.gz", hash = "sha256:dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"},
 ]
 paramiko = [
-    {file = "paramiko-2.8.1-py2.py3-none-any.whl", hash = "sha256:7b5910f5815a00405af55da7abcc8a9e0d9657f57fcdd9a89894fdbba1c6b8a8"},
-    {file = "paramiko-2.8.1.tar.gz", hash = "sha256:85b1245054e5d7592b9088cc6d08da22445417912d3a3e48138675c7a8616438"},
+    {file = "paramiko-2.9.0-py2.py3-none-any.whl", hash = "sha256:398a76c5f50de9a7ea6ca53c7ea4111b699dbc49cb13eeb1ae352f926639e743"},
+    {file = "paramiko-2.9.0.tar.gz", hash = "sha256:23ed3fd86989d55dc80c246585d4fb97e775265ffbd05ce86d8902ba07cfa65d"},
 ]
 pathspec = [
     {file = "pathspec-0.9.0-py2.py3-none-any.whl", hash = "sha256:7d15c4ddb0b5c802d161efc417ec1a2558ea2653c2e8ad9c19098201dc1c993a"},
