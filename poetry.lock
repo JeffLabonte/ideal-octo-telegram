@@ -301,7 +301,7 @@ python-versions = "*"
 
 [[package]]
 name = "dj-rest-auth"
-version = "2.2.1"
+version = "2.2.2"
 description = "Authentication and Registration in Django Rest Framework"
 category = "main"
 optional = false
@@ -312,7 +312,7 @@ Django = ">=2.0"
 djangorestframework = ">=3.7.0"
 
 [package.extras]
-with_social = ["django-allauth (>=0.40.0,<0.45.0)"]
+with_social = ["django-allauth (>=0.40.0,<0.48.0)"]
 
 [[package]]
 name = "django"
@@ -1061,7 +1061,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "ba3f8bab139f6ebbabf3cd18fbcf22462d488291733d7622d0a5b3653d5541a4"
+content-hash = "4e1b02e11aff4380905472574af690d110f512dff1def850e9317f6fa02a0334"
 
 [metadata.files]
 amqp = [
@@ -1272,7 +1272,7 @@ distlib = [
     {file = "distlib-0.3.4.zip", hash = "sha256:e4b58818180336dc9c529bfb9a0b58728ffc09ad92027a3f30b7cd91e3458579"},
 ]
 dj-rest-auth = [
-    {file = "dj-rest-auth-2.2.1.tar.gz", hash = "sha256:ab2fda1798c09987935efc981114961fe7158c97baa02a28be1d0636e61688d6"},
+    {file = "dj-rest-auth-2.2.2.tar.gz", hash = "sha256:fda25a777ac23bc2561f2579de5c45f058d0f1d27410469d5b321c353c4822ad"},
 ]
 django = [
     {file = "Django-4.0.1-py3-none-any.whl", hash = "sha256:7cd8e8a3ed2bc0dfda05ce1e53a9c81b30eefd7aa350e538a18884475e4d4ce2"},
