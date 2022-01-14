@@ -1,0 +1,7 @@
+webservers:
+    hosts:
+      backend_a:
+        ansible_ssh_host: <IP Address or DNS>
+        ansible_ssh_user: backend
+	ansible_ssh_password: Apassword
+        ansible_become_password: Apassword
