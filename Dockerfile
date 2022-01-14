@@ -6,6 +6,7 @@ WORKDIR /opt/code
 ENV DATABASE_NAME=${DATABASE_NAME}
 ENV DATABASE_USER=${DATABASE_USER}
 ENV DATABASE_PASSWORD=${DATABASE_PASSWORD}
+ENV CURRENT_HOST_NAME=${CURRENT_HOST_NAME}
 
 RUN apt update && apt install -y apt-utils build-essential libpq-dev curl && \
     pip install poetry
