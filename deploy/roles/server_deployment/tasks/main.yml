@@ -17,13 +17,13 @@
     repo: https://github.com/JeffLabonte/ideal-octo-telegram.git
     dest: ~/ideal-octo-telegram/
     version: main
+    force: yes
 
 - name: Copy Template to Server
   ansible.builtin.template:
     src: files/dot_env.j2
     dest: ~/ideal-octo-telegram/.env
     mode: "0644"
-
 
 - name: Run docker-compose build
   community.docker.docker_compose:
