@@ -74,6 +74,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"http://\d+\.\d+\.\d+\.\d+\:3000",
     r"http://\d+\.\d+\.\d+\.\d+\:8080",
 ]
 
