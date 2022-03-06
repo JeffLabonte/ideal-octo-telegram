@@ -17,6 +17,7 @@ services:
       - POSTGRES_DB=${DATABASE_NAME}
       - POSTGRES_USER=${DATABASE_USER}
       - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+    restart: always
   load_balancer:
     container_name: load_balancer
     image: grimsleepless/ideal-octo-telegram_nginx
@@ -27,6 +28,7 @@ services:
       outside:
     ports:
       - 80:80
+    restart: always
     depends_on:
       api:
         condition: service_healthy
@@ -43,6 +45,7 @@ services:
       - DATABASE_PASSWORD=${DATABASE_PASSWORD}
       - DATABASE_HOST=database
       - CURRENT_HOST_NAME=${CURRENT_HOST_NAME}
+    restart: always
     depends_on:
       - database
     healthcheck:
