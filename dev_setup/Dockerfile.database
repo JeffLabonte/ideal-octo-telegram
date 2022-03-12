@@ -1,0 +1,8 @@
+FROM postgres:14.2-bullseye
+LABEL MAITAINER="Jeff Labonte <grimsleepless@protonmail.com>"
+
+EXPOSE 5432
+
+ENV POSTGRES_USER="dev_user"
+ENV POSTGRES_PASSWORD="dev_user"
+ENV POSTGRES_DB="ideal-octo-telegram"
