@@ -1,0 +1,9 @@
+services:
+  dev_db:
+    container_name: database
+    build:
+      context: .
+      dockerfile: Dockerfile.database
+    restart: always
+    ports:
+      - 5432:5432
