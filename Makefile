@@ -7,6 +7,9 @@ WORKDIR_DIRECTORY = 'src'
 install:
 	poetry install
 
+start_dev:
+	cd dev_setup && docker-compose up -d
+
 runserver: install
 	cd ${WORKDIR_DIRECTORY} && poetry run python3 manage.py runserver 0.0.0.0:8000
 
