@@ -664,6 +664,19 @@ optional = false
 python-versions = ">=3"
 
 [[package]]
+name = "pika"
+version = "1.2.0"
+description = "Pika Python AMQP Client Library"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+gevent = ["gevent"]
+tornado = ["tornado"]
+twisted = ["twisted"]
+
+[[package]]
 name = "platformdirs"
 version = "2.4.0"
 description = "A small Python module for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
@@ -1074,7 +1087,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "23007afa74c46d60e2dff8f7d4f7461368a87ab109b305cb8f1ec2183d07cd76"
+content-hash = "38d6f82b26e5a129b4e9657fc5dcf8715944be79373e50e8d13b91f8cbe89a85"
 
 [metadata.files]
 amqp = [
@@ -1514,6 +1527,10 @@ pathspec = [
 ]
 pgsql = [
     {file = "pgsql-1.2.tar.gz", hash = "sha256:b11b86d2b46fcd8cbfa3d11f970ed92d6ee699f825f1aa5d2ea301a6e30f04f6"},
+]
+pika = [
+    {file = "pika-1.2.0-py2.py3-none-any.whl", hash = "sha256:59da6701da1aeaf7e5e93bb521cc03129867f6e54b7dd352c4b3ecb2bd7ec624"},
+    {file = "pika-1.2.0.tar.gz", hash = "sha256:f023d6ac581086b124190cb3dc81dd581a149d216fa4540ac34f9be1e3970b89"},
 ]
 platformdirs = [
     {file = "platformdirs-2.4.0-py3-none-any.whl", hash = "sha256:8868bbe3c3c80d42f20156f22e7131d2fb321f5bc86a2a345375c6481a67021d"},
