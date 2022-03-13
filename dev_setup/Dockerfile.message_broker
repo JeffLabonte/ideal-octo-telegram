@@ -1,0 +1,4 @@
+FROM rabbitmq:3.9
+LABEL MAINTAINER="Jeff Labonté <grimsleepless@protonmail.com>"
+
+EXPOSE 5672
