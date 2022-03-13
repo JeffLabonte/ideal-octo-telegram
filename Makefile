@@ -1,5 +1,7 @@
 SHELL = '/bin/bash'
 
+export DJANGO_SETTINGS_MODULE=settings.dev
+
 WORKDIR_DIRECTORY = 'src'
 
 install:
