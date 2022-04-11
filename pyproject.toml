@@ -14,10 +14,10 @@ pgsql = "^1.2"
 dj-rest-auth = "^2.2.4"
 django-allauth = "^0.50.0"
 gunicorn = "^20.1.0"
-psycopg2 = "^2.9.3"
 django-cors-headers = "^3.11.0"
 drf-spectacular = "^0.22.0"
 pika = "^1.2.0"
+psycopg2-binary = "^2.9.3"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.1"
