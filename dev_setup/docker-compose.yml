@@ -15,4 +15,4 @@ services:
     restart: always
     ports:
       - 5672:5672
-      - 8080:15672
+      - 15672:15672
