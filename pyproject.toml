@@ -28,7 +28,7 @@ isort = "^5.10.1"
 pre-commit = "^2.18.1"
 pynvim = "^0.4.3"
 pytest-django = "^4.5.2"
-pytest-testdox = "^3.0.0"
+pytest-testdox = "^3.0.1"
 factory-boy = "^3.2.1"
 mypy = "^0.942"
 
