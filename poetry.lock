@@ -682,7 +682,7 @@ python-versions = ">=3"
 
 [[package]]
 name = "pika"
-version = "1.2.0"
+version = "1.2.1"
 description = "Pika Python AMQP Client Library"
 category = "main"
 optional = false
@@ -1106,7 +1106,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "dddecadcafa82ea97ebeb34a001e78f27bbe69b9080b1292fe118b3a77784a08"
+content-hash = "8f2a1f0c434cf9b278d32f53e3752c0343b365b193b580492ad1bc9467d555e2"
 
 [metadata.files]
 amqp = [
@@ -1569,8 +1569,8 @@ pgsql = [
     {file = "pgsql-1.2.tar.gz", hash = "sha256:b11b86d2b46fcd8cbfa3d11f970ed92d6ee699f825f1aa5d2ea301a6e30f04f6"},
 ]
 pika = [
-    {file = "pika-1.2.0-py2.py3-none-any.whl", hash = "sha256:59da6701da1aeaf7e5e93bb521cc03129867f6e54b7dd352c4b3ecb2bd7ec624"},
-    {file = "pika-1.2.0.tar.gz", hash = "sha256:f023d6ac581086b124190cb3dc81dd581a149d216fa4540ac34f9be1e3970b89"},
+    {file = "pika-1.2.1-py2.py3-none-any.whl", hash = "sha256:fe89e95fb2d8d06fd713eeae2938299941e0ec329db37afca758f5f9458ce169"},
+    {file = "pika-1.2.1.tar.gz", hash = "sha256:e5fbf3a0a3599f4e114f6e4a7af096f9413a8f24f975c2657ba2fac3c931434f"},
 ]
 platformdirs = [
     {file = "platformdirs-2.5.1-py3-none-any.whl", hash = "sha256:bcae7cab893c2d310a711b70b24efb93334febe65f8de776ee320b517471e227"},
