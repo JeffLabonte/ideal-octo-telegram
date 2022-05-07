@@ -30,6 +30,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+MQTT_HOSTNAME = "localhost"
+MQTT_PORT = ""
+
 
 # Application definition
 
