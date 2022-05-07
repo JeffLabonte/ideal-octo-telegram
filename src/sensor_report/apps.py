@@ -12,8 +12,8 @@ class SensorReportConfig(AppConfig):
     name = "sensor_report"
 
     def ready(self):
-        consumer_mqtt = MQTTConsumerHandler()
-        consumer_mqtt.bind_topic(topic="#", callback=callback)
-        consumer_mqtt.start_process()
+        self.consumer_mqtt = MQTTConsumerHandler()
+        self.consumer_mqtt.bind_topic(topic="#", callback=callback)
+        self.consumer_mqtt.start_process()
 
         return super().ready()
