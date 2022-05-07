@@ -41,11 +41,11 @@ class MQTTConsumerHandler(BaseMQTT):
         )
 
     def start_process(self):
-        self.process = Process(target=self.channel.start_consuming)
+        self.process = Process(
+            target=self.channel.start_consuming,
+            daemon=True,  # used to kill Process on Django reload
+        )
         self.process.start()
-
-    def stop_process(self):
-        self.process.kill()
 
 
 class MQTTEmitHanlder:
