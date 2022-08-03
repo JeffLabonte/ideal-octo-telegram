@@ -6,7 +6,7 @@ authors = ["Jeff Labonte <grimsleepless@protonmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-Django = "^4.0"
+Django = "^4.1"
 djangorestframework = "^3.13.0"
 paramiko = "^2.11.0"
 celery = "^5.2.7"
