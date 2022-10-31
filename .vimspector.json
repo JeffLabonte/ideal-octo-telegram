@@ -1,0 +1,19 @@
+{
+  "configurations": {
+    "Run - Django": {
+      "adapter": "debugpy",
+      "configuration": {
+        "name": "Django - Launch",
+        "type": "python",
+        "request": "launch",
+        "program": "${workspaceFolder}/src/manage.py",
+        "args": [
+          "runserver",
+          "--settings=settings.dev"
+        ],
+        "django": true,
+        "console": "externalTerminal"
+      }
+    }
+  }
+}
