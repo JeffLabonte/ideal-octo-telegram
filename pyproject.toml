@@ -30,7 +30,7 @@ pynvim = "^0.4.3"
 pytest-django = "^4.5.2"
 pytest-testdox = "^3.0.1"
 factory-boy = "^3.2.1"
-mypy = "^0.990"
+mypy = "^0.991"
 
 [tool.poetry.group.dev.dependencies]
 debugpy = "^1.6.3"
