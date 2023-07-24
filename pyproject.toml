@@ -29,7 +29,7 @@ pre-commit = "^3.3.3"
 pynvim = "^0.4.3"
 pytest-django = "^4.5.2"
 pytest-testdox = "^3.1.0"
-factory-boy = "^3.2.1"
+factory-boy = "^3.3.0"
 mypy = "^1.4"
 
 [tool.poetry.group.dev.dependencies]
